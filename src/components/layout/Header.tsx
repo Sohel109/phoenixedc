@@ -30,7 +30,7 @@ export function Header() {
         <header
             className={clsx(
                 'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-                isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-white/75 backdrop-blur-md py-6'
+                isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
             )}
         >
             <div className="container mx-auto px-4 flex items-center justify-between">
@@ -40,7 +40,7 @@ export function Header() {
                         alt="Phoenix EDC Logo"
                         className="w-12 h-12 object-contain bg-white rounded-full shadow-lg group-hover:scale-105 transition-transform"
                     />
-                    <span className={clsx("font-bold text-xl tracking-tight transition-colors", isScrolled ? "text-gray-900" : "text-gray-900")}>
+                    <span className={clsx("font-bold text-xl tracking-tight transition-colors", isScrolled ? "text-gray-900" : "text-white drop-shadow-md")}>
                         Phoenix <span className="text-primary">EDC</span>
                     </span>
                 </Link>
@@ -55,7 +55,7 @@ export function Header() {
                                         to={link.path}
                                         className={clsx(
                                             'text-sm font-medium transition-colors hover:text-primary flex items-center gap-1 py-4',
-                                            location.pathname.startsWith(link.path) ? 'text-primary' : 'text-gray-600'
+                                            location.pathname.startsWith(link.path) ? 'text-primary' : (isScrolled ? 'text-gray-600' : 'text-white drop-shadow-md')
                                         )}
                                     >
                                         {link.label}
@@ -89,7 +89,7 @@ export function Header() {
                                 to={link.path}
                                 className={clsx(
                                     'text-sm font-medium transition-colors hover:text-primary relative group',
-                                    location.pathname === link.path ? 'text-primary' : 'text-gray-600'
+                                    location.pathname === link.path ? 'text-primary' : (isScrolled ? 'text-gray-600' : 'text-white drop-shadow-md')
                                 )}
                             >
                                 {link.label}
