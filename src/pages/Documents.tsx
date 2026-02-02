@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
-import { FileText, Download, ArrowRight } from 'lucide-react';
+import { FileText, Download } from 'lucide-react';
 
 export function Documents() {
     const containerRef = useRef<HTMLDivElement>(null);

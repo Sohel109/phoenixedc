@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Mail, MapPin, Music2, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 
 export function Footer() {
@@ -32,7 +33,7 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail size={18} className="text-primary-light shrink-0" />
-                                <a href="mailto:contact@phoenix-edc.com" className="hover:text-white transition-colors">contact@phoenix-edc.com</a>
+                                <a href="mailto:phoenixedc.asso@gmail.com" className="hover:text-white transition-colors">phoenixedc.asso@gmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -41,10 +42,10 @@ export function Footer() {
                     <div>
                         <h3 className="font-bold text-lg mb-4 text-white">Liens Rapides</h3>
                         <ul className="space-y-2 text-gray-400 text-sm">
-                            <li><a href="/projets" className="hover:text-primary-light transition-colors">Nos Projets</a></li>
-                            <li><a href="/evenements" className="hover:text-primary-light transition-colors">Événements</a></li>
-                            <li><a href="/partenaires" className="hover:text-primary-light transition-colors">Devenir Partenaire</a></li>
-                            <li><a href="/mentions-legales" className="hover:text-primary-light transition-colors">Mentions Légales</a></li>
+                            <li><Link to="/projets" className="hover:text-primary-light transition-colors">Nos Projets</Link></li>
+                            <li><Link to="/evenements" className="hover:text-primary-light transition-colors">Événements</Link></li>
+                            <li><Link to="/partenaires" className="hover:text-primary-light transition-colors">Devenir Partenaire</Link></li>
+                            <li><Link to="/mentions-legales" className="hover:text-primary-light transition-colors">Mentions Légales</Link></li>
                         </ul>
                     </div>
 

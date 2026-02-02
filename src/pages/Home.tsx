@@ -184,12 +184,12 @@ export function Home() {
 
                     <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 mb-12 opacity-80">
                         <img src="/partners/om.png" alt="Olympique de Marseille" className="h-20 md:h-24 hover:scale-110 transition-all duration-300 object-contain" />
-                        <img src="/partners/decathlon.png" alt="Decathlon" className="h-24 md:h-32 hover:scale-110 transition-all duration-300 object-contain" />
+                        <img src="/partners/decathlon.png" alt="Decathlon" className="h-14 md:h-20 hover:scale-110 transition-all duration-300 object-contain" />
                         <img src="/partners/deloitte.jpg" alt="Deloitte" className="h-10 md:h-12 hover:scale-110 transition-all duration-300 object-contain mix-blend-multiply" />
                         <img src="/partners/apprentis-auteuil.jpg" alt="Apprentis d'Auteuil" className="h-16 md:h-20 hover:scale-110 transition-all duration-300 object-contain mix-blend-multiply" />
                         <img src="/partners/lydia.png" alt="Lydia" className="h-10 md:h-12 hover:scale-110 transition-all duration-300 object-contain" />
                         <img src="/partners/darty.png" alt="Darty" className="h-10 md:h-12 hover:scale-110 transition-all duration-300 object-contain" />
-                        <img src="https://logo.clearbit.com/kedge.edu" alt="Kedge Business School" className="h-12 md:h-16 grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 hover:scale-110 object-contain" />
+                        <img src="/partners/kedge.png" alt="Kedge Business School" className="h-16 md:h-24 hover:scale-110 transition-all duration-300 object-contain" />
                     </div>
 
                     <Link to="/partenaires" className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors">

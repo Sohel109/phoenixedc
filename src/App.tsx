@@ -8,6 +8,7 @@ import { Events } from './pages/Events';
 import { EventDetail } from './pages/EventDetail';
 import { Partners } from './pages/Partners';
 import { Documents } from './pages/Documents';
+import { LegalMentions } from './pages/LegalMentions';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/evenements/:id" element={<EventDetail />} />
             <Route path="/partenaires" element={<Partners />} />
             <Route path="/documents" element={<Documents />} />
+            <Route path="/mentions-legales" element={<LegalMentions />} />
             <Route path="/contact" element={<div className="pt-32 text-center text-2xl font-bold">Page Contact (En construction)</div>} />
           </Routes>
         </main>
