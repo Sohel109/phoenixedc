@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { events } from '../data/events';
+import { Link } from 'react-router-dom';
 
 export function Events() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -84,13 +85,16 @@ function EventCard({ event, index }: { event: any, index: number }) {
                         {event.description}
                     </p>
 
-                    <button className={`w-full py-4 rounded-xl bg-gradient-to-r ${event.color} text-gray-800 font-semibold text-sm hover:shadow-lg transition-all flex items-center justify-center gap-2 group/btn relative overflow-hidden`}>
+                    <Link
+                        to={`/evenements/${event.id}`}
+                        className={`w-full py-4 rounded-xl bg-gradient-to-r ${event.color} text-gray-800 font-semibold text-sm hover:shadow-lg transition-all flex items-center justify-center gap-2 group/btn relative overflow-hidden`}
+                    >
                         <span className="relative z-10 flex items-center gap-2">
                             En savoir plus
                             <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                         </span>
                         <div className="absolute inset-0 bg-white/50 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-                    </button>
+                    </Link>
                 </div>
             </div>
         </motion.div>
