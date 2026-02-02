@@ -40,13 +40,10 @@ export function Header() {
             <div className="container mx-auto px-4 flex items-center justify-between">
                 <Link to="/" className="flex items-center gap-2 group">
                     <img
-                        src="/logo.jpg"
+                        src="/logo-new-badge.jpg"
                         alt="Phoenix EDC Logo"
-                        className="w-12 h-12 object-contain bg-white rounded-full shadow-lg group-hover:scale-105 transition-transform"
+                        className="h-16 w-auto object-contain hover:scale-105 transition-transform rounded-full"
                     />
-                    <span className={clsx("font-bold text-xl tracking-tight transition-colors", (isScrolled || !isHome) ? "text-gray-900 dark:text-white" : "text-white drop-shadow-md")}>
-                        Phoenix <span className="text-primary">EDC</span>
-                    </span>
                 </Link>
 
                 {/* Desktop Nav */}
