@@ -40,6 +40,7 @@ export const events = [
     {
         id: "olympiades",
         title: "Les Olympiades",
+        description: "Depuis 2014, les élèves suivis par des projets de Phoenix et leurs tuteurs se réunissent et s'affrontent lors d'épreuves sportives afin de bien terminer l'année.",
         fullDescription: `Créées en 2014, les Olympiades sont le plus gros événement de Phoenix Égalité Des Chances. A la fin de chaque année scolaire les Olympiades rassemblent plus de 200 personnes, tuteurs comme tuteurés, issus de tous les projets de Phoenix.\n\nDurant toute une journée, des équipes formées avec des élèves et tuteurs de différents projets s'affrontent sur de nombreuses épreuves sportives (foot, tire à la corde, basket, béret, ...). A la fin de la journée des prix sont décernés aux meilleures équipes sur différents critères, dont le fair-play qui entre bien évidemment en compte dans la notation.\n\nCette journée de compétition sportive permet aux tuteurés de rencontrer les autres membres des projets de Phoenix, tout en étant réunis sous les valeurs de l'association : partage, respect, solidarité et égalité des chances !`,
         image: "/images/events/olympiades.jpg",
         gallery: [
