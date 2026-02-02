@@ -98,10 +98,19 @@ export function EventDetail() {
                                                 href={link.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-50 hover:bg-white border border-gray-200 hover:border-primary/50 rounded-xl text-gray-700 hover:text-primary transition-all shadow-sm hover:shadow-md group"
+                                                className="inline-flex items-center gap-3 px-6 py-3 bg-gray-50 hover:bg-white border border-gray-200 hover:border-primary/50 rounded-xl text-gray-700 hover:text-primary transition-all shadow-sm hover:shadow-md group h-auto"
                                             >
-                                                <span>{link.label}</span>
-                                                <ExternalLink size={16} className="text-gray-400 group-hover:text-primary transition-colors" />
+                                                {/* @ts-ignore */}
+                                                {(link as any).logo && (
+                                                    <img
+                                                        /* @ts-ignore */
+                                                        src={(link as any).logo}
+                                                        alt="Logo"
+                                                        className="h-6 w-auto object-contain"
+                                                    />
+                                                )}
+                                                <span className="font-medium">{link.label}</span>
+                                                <ExternalLink size={16} className="text-gray-400 group-hover:text-primary transition-colors shrink-0" />
                                             </a>
                                         ))}
                                     </div>
@@ -114,7 +123,7 @@ export function EventDetail() {
                             {event.gallery && event.gallery.length > 0 && (
                                 <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                                     <h3 className="text-lg font-bold text-gray-900 mb-4">Galerie Photos</h3>
-                                    <div className="relative aspect-[3/4] rounded-xl overflow-hidden group">
+                                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden group">
                                         <AnimatePresence mode="wait">
                                             <motion.img
                                                 key={currentImageIndex}
