@@ -99,7 +99,7 @@ export function Header() {
                         )
                     })}
                     <a
-                        href="https://www.helloasso.com/associations/egalite-des-chances-phoenix"
+                        href="https://www.helloasso.com/associations/egalite-des-chances-phoenix/collectes/a"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-all transform hover:scale-105 shadow-md hover:shadow-lg"
@@ -135,7 +135,7 @@ export function Header() {
                         </Link>
                     ))}
                     <a
-                        href="https://www.helloasso.com/associations/egalite-des-chances-phoenix"
+                        href="https://www.helloasso.com/associations/egalite-des-chances-phoenix/collectes/a"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 px-5 py-3 bg-primary text-white rounded-lg font-semibold text-sm hover:bg-primary-dark transition-colors"
