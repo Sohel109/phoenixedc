@@ -129,7 +129,7 @@ export function Home() {
             </section>
 
             {/* Stats Section */}
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-white dark:bg-current-bg transition-colors duration-300">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         {[
@@ -138,9 +138,9 @@ export function Home() {
                             { number: "9", label: "Projets actifs" },
                             { number: "2011", label: "Date de création" },
                         ].map((stat, index) => (
-                            <div key={index} className="p-6 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                                <div className="text-4xl md:text-5xl font-extrabold text-secondary mb-2">{stat.number}</div>
-                                <div className="text-gray-500 font-medium uppercase tracking-wide text-sm">{stat.label}</div>
+                            <div key={index} className="p-6 rounded-2xl bg-gray-50 dark:bg-current-card hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
+                                <div className="text-4xl md:text-5xl font-extrabold text-secondary dark:text-secondary-light mb-2">{stat.number}</div>
+                                <div className="text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide text-sm">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -148,11 +148,11 @@ export function Home() {
             </section>
 
             {/* Missions Section */}
-            <section className="py-24 bg-gray-50">
+            <section className="py-24 bg-gray-50 dark:bg-current-bg/50 transition-colors duration-300">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Nos Missions</h2>
-                        <p className="text-gray-600">
+                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Nos Missions</h2>
+                        <p className="text-gray-600 dark:text-gray-300">
                             Nous intervenons auprès des jeunes des quartiers prioritaires de Marseille à travers trois axes fondamentaux.
                         </p>
                     </div>
@@ -178,18 +178,18 @@ export function Home() {
             </section>
 
             {/* Partners Section */}
-            <section className="py-20 bg-white border-t border-gray-100">
+            <section className="py-20 bg-white dark:bg-current-bg border-t border-gray-100 dark:border-white/5 transition-colors duration-300">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-12">Ils nous soutiennent</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Ils nous soutiennent</h2>
 
-                    <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 mb-12 opacity-80">
-                        <img src="/partners/om.png" alt="Olympique de Marseille" className="h-20 md:h-24 hover:scale-110 transition-all duration-300 object-contain" />
-                        <img src="/partners/decathlon.png" alt="Decathlon" className="h-14 md:h-20 hover:scale-110 transition-all duration-300 object-contain" />
-                        <img src="/partners/deloitte.jpg" alt="Deloitte" className="h-10 md:h-12 hover:scale-110 transition-all duration-300 object-contain mix-blend-multiply" />
-                        <img src="/partners/apprentis-auteuil.jpg" alt="Apprentis d'Auteuil" className="h-16 md:h-20 hover:scale-110 transition-all duration-300 object-contain mix-blend-multiply" />
-                        <img src="/partners/lydia.png" alt="Lydia" className="h-10 md:h-12 hover:scale-110 transition-all duration-300 object-contain" />
-                        <img src="/partners/darty.png" alt="Darty" className="h-10 md:h-12 hover:scale-110 transition-all duration-300 object-contain" />
-                        <img src="/partners/kedge.png" alt="Kedge Business School" className="h-16 md:h-24 hover:scale-110 transition-all duration-300 object-contain" />
+                    <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 mb-12 opacity-80 dark:opacity-100">
+                        <div className="bg-white dark:bg-white/90 p-2 rounded-lg"><img src="/partners/om.png" alt="Olympique de Marseille" className="h-20 md:h-24 hover:scale-110 transition-all duration-300 object-contain" /></div>
+                        <div className="bg-white dark:bg-white/90 p-2 rounded-lg"><img src="/partners/decathlon.png" alt="Decathlon" className="h-14 md:h-20 hover:scale-110 transition-all duration-300 object-contain" /></div>
+                        <div className="bg-white dark:bg-white/90 p-2 rounded-lg"><img src="/partners/deloitte.jpg" alt="Deloitte" className="h-10 md:h-12 hover:scale-110 transition-all duration-300 object-contain mix-blend-multiply" /></div>
+                        <div className="bg-white dark:bg-white/90 p-2 rounded-lg"><img src="/partners/apprentis-auteuil.jpg" alt="Apprentis d'Auteuil" className="h-16 md:h-20 hover:scale-110 transition-all duration-300 object-contain mix-blend-multiply" /></div>
+                        <div className="bg-white dark:bg-white/90 p-2 rounded-lg"><img src="/partners/lydia.png" alt="Lydia" className="h-10 md:h-12 hover:scale-110 transition-all duration-300 object-contain" /></div>
+                        <div className="bg-white dark:bg-white/90 p-2 rounded-lg"><img src="/partners/darty.png" alt="Darty" className="h-10 md:h-12 hover:scale-110 transition-all duration-300 object-contain" /></div>
+                        <div className="bg-white dark:bg-white/90 p-2 rounded-lg"><img src="/partners/kedge.png" alt="Kedge Business School" className="h-16 md:h-24 hover:scale-110 transition-all duration-300 object-contain" /></div>
                     </div>
 
                     <Link to="/partenaires" className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors">
@@ -204,12 +204,12 @@ export function Home() {
 
 function MissionCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
     return (
-        <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 border border-gray-100">
-            <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+        <div className="bg-white dark:bg-current-card p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 border border-gray-100 dark:border-white/5">
+            <div className="w-16 h-16 bg-primary/10 dark:bg-white/10 text-primary dark:text-primary-light rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                 {icon}
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{title}</h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                 {description}
             </p>
         </div>

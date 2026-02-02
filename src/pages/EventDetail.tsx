@@ -41,20 +41,20 @@ export function EventDetail() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 pt-24 pb-20">
+        <div className="min-h-screen bg-gray-50 dark:bg-current-bg pt-24 pb-20 transition-colors duration-300">
             {/* Background Elements */}
-            <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-50 dark:opacity-30">
                 <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-secondary/10 rounded-full blur-[100px]" />
                 <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-primary/10 rounded-full blur-[100px]" />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
-                <Link to="/evenements" className="inline-flex items-center gap-2 text-gray-600 hover:text-primary mb-8 transition-colors group">
+                <Link to="/evenements" className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors group">
                     <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                     Retour aux événements
                 </Link>
 
-                <div className="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-gray-100">
+                <div className="bg-white dark:bg-current-card rounded-[2rem] shadow-xl dark:shadow-none overflow-hidden border border-gray-100 dark:border-white/5 mt-8">
                     {/* Header Image */}
                     <div className="relative h-64 md:h-96 w-full">
                         <img
@@ -62,7 +62,7 @@ export function EventDetail() {
                             alt={event.title}
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                         <div className="absolute bottom-0 left-0 p-8 text-white">
                             <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-sm font-semibold mb-4`}>
                                 <Calendar size={16} />
@@ -75,7 +75,7 @@ export function EventDetail() {
                     <div className="p-8 md:p-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Main Content */}
                         <div className="lg:col-span-2 space-y-8">
-                            <div className="prose prose-lg max-w-none text-gray-600">
+                            <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
                                 {event.fullDescription ? (
                                     event.fullDescription.split('\n').map((paragraph, idx) => (
                                         <p key={idx} className="mb-4 leading-relaxed">
@@ -89,8 +89,8 @@ export function EventDetail() {
 
                             {/* External Links / Editions */}
                             {event.externalLinks && (
-                                <div className="mt-8 border-t border-gray-100 pt-8">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-6">Éditions précédentes</h3>
+                                <div className="mt-8 border-t border-gray-100 dark:border-gray-800 pt-8">
+                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Éditions précédentes</h3>
                                     <div className="flex flex-wrap gap-4">
                                         {event.externalLinks.map((link, idx) => (
                                             <a
@@ -98,7 +98,7 @@ export function EventDetail() {
                                                 href={link.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-3 px-6 py-3 bg-gray-50 hover:bg-white border border-gray-200 hover:border-primary/50 rounded-xl text-gray-700 hover:text-primary transition-all shadow-sm hover:shadow-md group h-auto"
+                                                className="inline-flex items-center gap-3 px-6 py-3 bg-gray-50 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 hover:border-primary/50 rounded-xl text-gray-700 dark:text-gray-200 hover:text-primary transition-all shadow-sm hover:shadow-md group h-auto"
                                             >
                                                 {/* @ts-ignore */}
                                                 {(link as any).logo && (
@@ -121,8 +121,8 @@ export function EventDetail() {
                         {/* Sidebar / Gallery */}
                         <div className="lg:col-span-1 space-y-8">
                             {event.gallery && event.gallery.length > 0 && (
-                                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                                    <h3 className="text-lg font-bold text-gray-900 mb-4">Galerie Photos</h3>
+                                <div className="bg-gray-50 dark:bg-current-bg/50 rounded-2xl p-6 border border-gray-100 dark:border-white/5">
+                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Galerie Photos</h3>
                                     <div className="relative aspect-[4/3] rounded-xl overflow-hidden group">
                                         <AnimatePresence mode="wait">
                                             <motion.img
@@ -133,7 +133,7 @@ export function EventDetail() {
                                                 animate={{ opacity: 1 }}
                                                 exit={{ opacity: 0 }}
                                                 transition={{ duration: 0.5 }}
-                                                className="absolute inset-0 w-full h-full object-contain bg-white"
+                                                className="absolute inset-0 w-full h-full object-contain bg-white dark:bg-black"
                                             />
                                         </AnimatePresence>
 

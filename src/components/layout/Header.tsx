@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Heart, ChevronDown } from 'lucide-react';
+import { Menu, X, Heart, ChevronDown, Sun, Moon } from 'lucide-react';
 import { projects } from '../../data/projects';
+import { useTheme } from '../../context/ThemeContext';
 
 import { Link, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
@@ -10,6 +11,7 @@ export function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
     const isHome = location.pathname === '/';
+    const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,7 +34,7 @@ export function Header() {
         <header
             className={clsx(
                 'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-                isScrolled || !isHome ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+                isScrolled || !isHome ? 'bg-white/90 dark:bg-current-bg/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
             )}
         >
             <div className="container mx-auto px-4 flex items-center justify-between">
@@ -42,7 +44,7 @@ export function Header() {
                         alt="Phoenix EDC Logo"
                         className="w-12 h-12 object-contain bg-white rounded-full shadow-lg group-hover:scale-105 transition-transform"
                     />
-                    <span className={clsx("font-bold text-xl tracking-tight transition-colors", (isScrolled || !isHome) ? "text-gray-900" : "text-white drop-shadow-md")}>
+                    <span className={clsx("font-bold text-xl tracking-tight transition-colors", (isScrolled || !isHome) ? "text-gray-900 dark:text-white" : "text-white drop-shadow-md")}>
                         Phoenix <span className="text-primary">EDC</span>
                     </span>
                 </Link>
@@ -57,7 +59,7 @@ export function Header() {
                                         to={link.path}
                                         className={clsx(
                                             'text-sm font-medium transition-colors hover:text-primary flex items-center gap-1 py-4',
-                                            location.pathname.startsWith(link.path) ? 'text-primary' : ((isScrolled || !isHome) ? 'text-gray-600' : 'text-white drop-shadow-md')
+                                            location.pathname.startsWith(link.path) ? 'text-primary' : ((isScrolled || !isHome) ? 'text-gray-600 dark:text-gray-300' : 'text-white drop-shadow-md')
                                         )}
                                     >
                                         {link.label}
@@ -65,14 +67,14 @@ export function Header() {
                                     </Link>
 
                                     {/* Dropdown Menu */}
-                                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-t border-l border-gray-100"></div>
-                                        <div className="relative bg-white rounded-lg overflow-hidden">
+                                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white dark:bg-current-card rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white dark:bg-current-card rotate-45 border-t border-l border-gray-100 dark:border-gray-800"></div>
+                                        <div className="relative bg-white dark:bg-current-card rounded-lg overflow-hidden">
                                             {projects.map((project) => (
                                                 <Link
                                                     key={project.id}
                                                     to={`/projets/${project.id}`}
-                                                    className="block px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary transition-colors flex items-center gap-3"
+                                                    className="block px-4 py-3 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-primary transition-colors flex items-center gap-3"
                                                 >
                                                     <div className={`w-8 h-8 rounded-lg ${project.color} flex items-center justify-center text-primary shrink-0`}>
                                                         <project.icon size={14} />
@@ -91,7 +93,7 @@ export function Header() {
                                 to={link.path}
                                 className={clsx(
                                     'text-sm font-medium transition-colors hover:text-primary relative group',
-                                    location.pathname === link.path ? 'text-primary' : ((isScrolled || !isHome) ? 'text-gray-600' : 'text-white drop-shadow-md')
+                                    location.pathname === link.path ? 'text-primary' : ((isScrolled || !isHome) ? 'text-gray-600 dark:text-gray-300' : 'text-white drop-shadow-md')
                                 )}
                             >
                                 {link.label}
@@ -99,6 +101,18 @@ export function Header() {
                             </Link>
                         )
                     })}
+
+                    <button
+                        onClick={toggleTheme}
+                        className={clsx(
+                            "p-2 rounded-full transition-colors hover:bg-black/10 dark:hover:bg-white/10",
+                            (isScrolled || !isHome) ? "text-gray-600 dark:text-gray-300" : "text-white"
+                        )}
+                        aria-label="Toggle Dark Mode"
+                    >
+                        {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                    </button>
+
                     <a
                         href="https://www.helloasso.com/associations/egalite-des-chances-phoenix/collectes/a"
                         target="_blank"
@@ -111,24 +125,35 @@ export function Header() {
                 </nav>
 
                 {/* Mobile Menu Button */}
-                <button
-                    className={clsx("md:hidden p-2", (isScrolled || !isHome) ? "text-gray-700" : "text-white")}
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <div className="flex items-center gap-4 md:hidden">
+                    <button
+                        onClick={toggleTheme}
+                        className={clsx(
+                            "p-2 rounded-full transition-colors",
+                            (isScrolled || !isHome) ? "text-gray-600 dark:text-gray-300" : "text-white"
+                        )}
+                    >
+                        {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                    </button>
+                    <button
+                        className={clsx("p-2", (isScrolled || !isHome) ? "text-gray-700 dark:text-white" : "text-white")}
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Nav */}
             {isMobileMenuOpen && (
-                <div className="absolute top-full left-0 right-0 bg-white border-t border-gray-100 shadow-xl p-4 flex flex-col gap-4 md:hidden animate-in slide-in-from-top-2">
+                <div className="absolute top-full left-0 right-0 bg-white dark:bg-current-bg border-t border-gray-100 dark:border-gray-800 shadow-xl p-4 flex flex-col gap-4 md:hidden animate-in slide-in-from-top-2">
                     {navLinks.map((link) => (
                         <Link
                             key={link.path}
                             to={link.path}
                             className={clsx(
                                 'text-base font-medium p-2 rounded-lg transition-colors',
-                                location.pathname === link.path ? 'bg-primary/10 text-primary' : 'text-gray-600 hover:bg-gray-50'
+                                location.pathname === link.path ? 'bg-primary/10 text-primary' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'
                             )}
                             onClick={() => setIsMobileMenuOpen(false)}
                         >

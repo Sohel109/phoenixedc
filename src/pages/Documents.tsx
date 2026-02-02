@@ -27,9 +27,9 @@ export function Documents() {
     ];
 
     return (
-        <div ref={containerRef} className="min-h-screen bg-gray-50 overflow-hidden relative">
+        <div ref={containerRef} className="min-h-screen bg-gray-50 dark:bg-current-bg overflow-hidden relative transition-colors duration-300">
             {/* Abstract Background Orbs */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-50 dark:opacity-30">
                 <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-secondary/10 rounded-full blur-[100px] animate-pulse-slow" />
                 <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-primary/10 rounded-full blur-[100px] animate-pulse-slow delay-1000" />
             </div>
@@ -39,7 +39,7 @@ export function Documents() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 mb-6 tracking-tight"
+                        className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 mb-6 tracking-tight"
                     >
                         Documents Utiles
                     </motion.h1>
@@ -47,7 +47,7 @@ export function Documents() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl text-gray-500 max-w-2xl mx-auto font-light"
+                        className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light"
                     >
                         Retrouvez ici les ressources documentaires officielles de l'association Phoenix Égalité des Chances.
                     </motion.p>
@@ -62,26 +62,26 @@ export function Documents() {
                             transition={{ delay: index * 0.2 }}
                             className="group relative"
                         >
-                            <div className="absolute inset-0 bg-white rounded-[2rem] border border-gray-100 shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.02]" />
+                            <div className="absolute inset-0 bg-white dark:bg-current-card rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.02] dark:shadow-none" />
 
                             <div className="relative p-8 flex flex-col h-full">
                                 <div className="flex items-start gap-6 mb-6">
-                                    <div className="w-16 h-16 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center shrink-0">
+                                    <div className="w-16 h-16 rounded-2xl bg-red-50 dark:bg-red-500/10 text-red-500 flex items-center justify-center shrink-0">
                                         <FileText size={32} />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
                                             {doc.title}
                                         </h3>
-                                        <p className="text-gray-500 leading-relaxed text-sm">
+                                        <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
                                             {doc.description}
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="mt-auto flex items-center justify-between pt-6 border-t border-gray-50">
-                                    <div className="flex items-center gap-4 text-xs font-medium text-gray-400">
-                                        <span className="bg-gray-100 px-2 py-1 rounded-md">{doc.type}</span>
+                                <div className="mt-auto flex items-center justify-between pt-6 border-t border-gray-50 dark:border-white/5">
+                                    <div className="flex items-center gap-4 text-xs font-medium text-gray-400 dark:text-gray-500">
+                                        <span className="bg-gray-100 dark:bg-white/5 px-2 py-1 rounded-md">{doc.type}</span>
                                         <span>{doc.size}</span>
                                     </div>
                                     <a
