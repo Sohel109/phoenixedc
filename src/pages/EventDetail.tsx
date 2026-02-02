@@ -58,7 +58,7 @@ export function EventDetail() {
                     {/* Header Image */}
                     <div className="relative h-64 md:h-96 w-full">
                         <img
-                            src={event.image}
+                            src={event.headerImage || event.image}
                             alt={event.title}
                             className="w-full h-full object-cover"
                         />

@@ -7,6 +7,7 @@ import { ProjectDetail } from './pages/ProjectDetail';
 import { Events } from './pages/Events';
 import { EventDetail } from './pages/EventDetail';
 import { Partners } from './pages/Partners';
+import { Documents } from './pages/Documents';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/evenements" element={<Events />} />
             <Route path="/evenements/:id" element={<EventDetail />} />
             <Route path="/partenaires" element={<Partners />} />
+            <Route path="/documents" element={<Documents />} />
             <Route path="/contact" element={<div className="pt-32 text-center text-2xl font-bold">Page Contact (En construction)</div>} />
           </Routes>
         </main>
