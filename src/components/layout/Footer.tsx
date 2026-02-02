@@ -12,9 +12,9 @@ export function Footer() {
                     <div className="space-y-4">
                         <div className="flex items-center gap-2">
                             <img
-                                src="/logo-new-wide.png"
+                                src="/logo-badge.jpg"
                                 alt="Phoenix EDC Logo"
-                                className="w-10 h-10 object-contain bg-white rounded-lg shadow-sm"
+                                className="w-10 h-10 object-contain bg-white rounded-full shadow-sm"
                             />
                             <span className="font-bold text-lg tracking-tight">Phoenix <span className="text-primary-light">EDC</span></span>
                         </div>

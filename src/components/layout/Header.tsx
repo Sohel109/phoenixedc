@@ -40,9 +40,9 @@ export function Header() {
             <div className="container mx-auto px-4 flex items-center justify-between">
                 <Link to="/" className="flex items-center gap-2 group">
                     <img
-                        src="/logo-new-badge.jpg"
+                        src="/logo-header.png"
                         alt="Phoenix EDC Logo"
-                        className="h-16 w-auto object-contain hover:scale-105 transition-transform rounded-full"
+                        className="h-12 w-auto object-contain hover:scale-105 transition-transform"
                     />
                 </Link>
 
